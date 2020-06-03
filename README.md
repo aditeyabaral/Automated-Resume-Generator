@@ -12,6 +12,11 @@ All the scripts required to run the application can be found in [Source Code](ht
     * Modify the email address fields to your email in ```ResumeGenerator.py```
 * Finally, execute the application with ```python3 Main.py```
 
+## Folder Descriptions
+* [Source Code](https://github.com/aditeyabaral/Automated-Resume-Generator/tree/master/Source%20Code): Contains the scripts required to execute the application
+* [Lossless Joins](https://github.com/aditeyabaral/Automated-Resume-Generator/tree/master/Lossless%20Joins): Contains CSV files displaying lossless join of relations
+* [Automated Scripts](https://github.com/aditeyabaral/Automated-Resume-Generator/tree/master/Automated%20Scripts): Contains 2 python scripts - one of them to generate random data for relations and another to generate resumes for all users in database
+
 ## More about the Application
 A resume or portfolio is an extremely important tool in today’s world. It is used by employees and university graduates all over the world to market themselves and display their skills and achievements and serves as a documentation of one’s professional life. Whether you are a professional with over 20 years of experience or a freshman from University, having an up to date and polished resume is of utmost importance to help you stand out and be a cut above the competition.
 
