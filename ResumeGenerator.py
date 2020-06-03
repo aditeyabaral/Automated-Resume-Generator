@@ -8,8 +8,8 @@ from email.mime.text import MIMEText
 
 subject = "Resume - {}"
 body = "Greetings from Resume Generator!\n\nPFA a shareable link to your resume along with your resume file.\n{}\nThank you\nAutomated Resume Generator"
-sender_email = "resumegeneratorpes@gmail.com"
-password = "dbmspes123"
+sender_email = "<YOUR_EMAIL_ADDRESS>"
+password = "<YOUR_PASSWORD>"
 url = r"https://script.google.com/macros/s/AKfycbxDUQuHHMayj191-E2GZVQXwu0PUrM1UUdksFN_q0_UdnSfrlfi/exec?"
 
 def send_resume(name, receiver_email, doc_name, resume_url):
