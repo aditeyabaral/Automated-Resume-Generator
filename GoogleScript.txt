@@ -1,0 +1,72 @@
+function createDocument(name,bio,address,phone,email,websites,experience,education,projects,skills,certifications,accomplishments) {
+  var TEMPLATE_ID = '12W9PR7ueOql2T0J2SEYWej03CEM0f3D33sjU7XKlLFI';  
+  var documentId = DriveApp.getFileById(TEMPLATE_ID).makeCopy().getId();
+  
+  drivedoc = DriveApp.getFileById(documentId);
+  drivedoc.setName(name);
+  
+  doc = DocumentApp.openById(documentId);
+  
+  var body = doc.getBody();
+  
+  body.replaceText('Your Name', name);
+  body.replaceText('<bio>', bio);
+  if(address!="")
+    address+='\n';
+  body.replaceText('<address>', address+'\n');
+  body.replaceText('<phone>', phone);
+  body.replaceText('<email>', email);
+  body.replaceText('<websites>', websites);
+  
+  if(experience=="")
+    body.replaceText('EXPERIENCE', experience+'\n');
+  else
+    experience = '\n\n'+experience+'\n\n';
+  body.replaceText('<experience info>', experience);
+  
+  body.replaceText('<education info>', '\n'+education+'\n');
+  
+  if(projects=="")
+    body.replaceText('PROJECTS', projects);
+  else
+    projects = '\n\n'+projects+'\n';
+  body.replaceText('<project info>', projects);
+  
+  if(skills=="")
+    body.replaceText('SKILLS', skills);
+  else
+    skills = '\n\n'+skills+'\n\n';
+  body.replaceText('<skill info>', skills);
+  
+  if(certifications=="")
+    body.replaceText('CERTIFICATIONS', certifications);
+  else
+    certifications = '\n\n'+certifications+'\n\n';
+  body.replaceText('<certification info>', certifications);
+  
+  if(accomplishments=="")
+    body.replaceText('ACCOMPLISHMENTS', accomplishments);
+  else
+    accomplishments = '\n\n'+accomplishments+'\n';
+  body.replaceText('<accomplishment  info>', accomplishments);
+  
+  drivedoc.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.EDIT);
+  return "https://docs.google.com/document/d/" + documentId + "/export?format=pdf";
+}
+
+function doGet(e) {
+  var name = e.parameter.name;
+  var bio = e.parameter.bio;
+  var address = e.parameter.address;
+  var phone = e.parameter.phone;
+  var email = e.parameter.email;
+  var websites = e.parameter.websites;
+  var experience = e.parameter.experience;
+  var education = e.parameter.education;
+  var projects = e.parameter.projects;
+  var skills = e.parameter.skills;
+  var certifications = e.parameter.certifications;
+  var accomplishments = e.parameter.accomplishments;
+  var url = createDocument(name,bio,address,phone,email,websites,experience,education,projects,skills,certifications,accomplishments);
+  return ContentService.createTextOutput(url);
+}
